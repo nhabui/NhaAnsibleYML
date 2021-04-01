@@ -1,0 +1,22 @@
+---
+- 
+  name: SOFTWARE
+  become: true
+  become_user: root
+  hosts: FRX4
+  tasks:
+
+    - name: Install Software FORIX
+      community.general.snap:
+        name: 
+          - termius-app
+          - slack
+          - phpstorm
+          - sublime-text
+          - skype
+        classic: yes
+        channel: latest
+
+    - name: Install Flameshot .deb
+      apt:
+        deb: https://github.com/flameshot-org/flameshot/releases/download/v0.6.0/flameshot_0.6.0_bionic_x86_64.deb

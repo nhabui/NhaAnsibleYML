@@ -1,0 +1,34 @@
+---
+- 
+  name: SOFTWARE
+  become: true
+  become_user: root
+  hosts: install
+  tasks:
+
+   # - name: Upgrade all packages to the latest version
+   #   apt:
+   #     name: "*"
+   #     state: latest
+
+    - name: Install Clamav
+      apt:
+        name: clamav
+        state: latest
+    
+    - name: Install Clamav-daemon
+      apt:
+        name: clamav-daemon
+        state: latest
+
+    - name: Clamscan1
+      file:
+        path: /opt/clamavscan
+        state: directory
+    
+    
+
+    - name: Install Clamtk
+      apt:
+        name: clamtk
+        state: latest
